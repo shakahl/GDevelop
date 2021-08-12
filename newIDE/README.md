@@ -110,22 +110,11 @@ Cloud storage providers are set up with development keys when you're running GDe
 
 ### Desktop version
 
-First, update the version number in `newIDE/electron-app/app/package.json`.
+First, update the version number in `newIDE/electron-app/app/package.json` and merge the change to master.
 
-```bash
-cd newIDE/electron-app
-yarn build # or npm run build
-```
+Then, wait for the CIs (CircleCI & AppVeyor) to build the artefacts needed for the release (MacOS, Windows and Linux)
 
-This will build and package the Electron app for Windows, macOS or Linux (according to your OS). The output is stored inside `newIDE/electron-app/dist`.
-
-To build artifacts for all platforms and publish to a draft GitHub release:
-
-```
-GH_TOKEN=xxx yarn build --mac --win --linux AppImage --publish always
-```
-
-> To build beta versions, you can create archives: `yarn build --mac zip --win zip --linux AppImage`.
+Once finished, you can download them and upload them to the new release!
 
 ### Webapp version
 
